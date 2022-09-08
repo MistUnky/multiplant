@@ -18,6 +18,7 @@ minetest.register_abm({
     interval=30,
     chance=5,
   	action=function(pos)
+		minetest.remove_node(pos)
 		minetest.add_node(pos, {name=multiplant.get_random_seed()})
 	end,
 })
