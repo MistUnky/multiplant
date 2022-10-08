@@ -4,7 +4,7 @@ farming.register_plant("multiplant:multiplant", {
 	paramtype2 = "meshoptions",
 	inventory_image = "multiplant_multiplant_seed.png",
 	steps = 8,
-	minlight = 13,
+	minlight = 5,
 	maxlight = default.LIGHT_MAX,
 	fertility = {"grassland"},
 	groups = {multiplant = 1, flammable = 4},
