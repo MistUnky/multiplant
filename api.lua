@@ -1,17 +1,21 @@
 multiplant.get_all_seeds = function()
-    
     local things={}
     for name, def in pairs(minetest.registered_items) do
         local group=def.groups or {}
         if not group.not_in_creative_inventory then
             if group.flora or 
-               group.seed or
-               group.sapling then
+                group.seed or
+                group.sapling or
+                group.mushroom then
                 table.insert(things,name)
                 --minetest.log(name)
             end
         end
     end
+    table.insert(things, "default:papyrus")
+    table.insert(things, "default:cactus")
+    table.insert(things, "flowers:waterlily")
+    table.insert(things, "farming:cotton_wild")
     --[[
     minetest.log("Ausgabe gesammelter Daten:")
     minetest.log(table.concat(things, '",'.."\n"..'"'))
