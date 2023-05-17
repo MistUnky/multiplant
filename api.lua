@@ -4,7 +4,7 @@ multiplant.get_all_seeds = function()
         local group=def.groups or {}
         if not group.not_in_creative_inventory then
             if group.flora or 
-                group.seed or
+                --group.seed or
                 group.sapling or
                 group.mushroom then
                 table.insert(things,name)

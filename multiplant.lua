@@ -11,15 +11,14 @@ farming.register_plant("multiplant:multiplant", {
 	place_param2 = 3,
 })
 
-minetest.register_craft({
-	type = "shapeless",
-	output = {"multiplant:multiplant_seed"},
-	recipe = {"multiplant:multiplant_seed"},
+minetest.register_abm({
+    nodenames= {
+		"multiplant:multiplant_8",
+},
+    interval=30,
+    chance=5,
+  	action=function(pos)
+		--minetest.remove_node(pos)
+		minetest.set_node(pos, {name=multiplant.get_random_seed()})
+	end,
 })
-
-minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
-	if itemstack:get_name() ~= "multiplant:multiplant_seed" then
-		return
-	end
-	itemstack:replace(multiplant.get_random_seed())
-end)
